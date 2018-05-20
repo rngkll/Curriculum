@@ -1,0 +1,301 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.0 (5/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+
+\begin{document}
+
+\header{Alvaro }{Segura Del Barco}{Networks \& systems administrator} % Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{contact}
+San José
+Costa Rica
+~
++506 83185468
+~
+\href{mailto:alvarosb@gmail.com}{alvarosb@gmail.com}
+\href{http://wp.me/4uJoK}{http://wp.me/4uJoK}
+\href{http://git.io/DM8URA}{http://git.io/DM8URA}
+\href{http://rngkll.github.io}{http://rngkll.github.io}
+\section{languages}
+spanish mother tongue
+english fluency
+\section{programming}
+%{\color{red} $\varheartsuit$} 
+Python,
+Shell scripting, C,
+C++, Tcl, \LaTeX, html,
+Verilog, java
+\end{aside}
+
+
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{experience}
+
+\begin{entrylist}
+
+\entry
+{2015--2018}
+{Akamai technologies}
+{Escazu, Costa Rica}
+{\emph{Solutions architect} \\
+Create, modify and consult different customers, first in the media industry the as a Carrier product integration specialist, working with Licensed CDN and DNS systems.\\
+Manage the innovation laboratory in Costa Rica, represent Akamai in the "Espacios de innovación y tecnología aplicada" \href{https://www.cinde.org/}{CINDE} (Costa Rican investment promotion agency) program.
+
+Detailed achievements:
+\begin{itemize}
+\item Developed a testing framework to test Akamai's customers configurations.
+\item Developed tools to push media traffic to the platform to test customers configurations.
+\item SA assigned to the AURA project, Licensed CDN Akamai product.
+\item Part of the starting group of the X-Akamai-Project initiative.
+\item Akamai EDGE 2017 speaker and expert bar consultant.
+\item Akamai AIRs 2018 presenter.
+\item Successfully integrated multiple LCDN and AnswerX with the carriers team.
+\end{itemize}
+}
+
+%------------------------------------------------
+\entry
+{2014--2015}
+{Softtek}
+{Heredia, Costa Rica}
+{\emph{Embedded developer} \\
+C developer for the HP wired networking devices
+
+Detailed achievements:
+\begin{itemize}
+\item Developed debugging commands for HP networking devices.
+\item Migrated Uboot for the CPU architecture in the network devices.
+\end{itemize}
+}
+
+%------------------------------------------------
+\entry
+{2013--2014}
+{Softtek}
+{Heredia, Costa Rica}
+{\emph{Senior QA Engineer} \\
+Triage and Test-case programming for the upcoming software for HP wired networking devices.\\
+Rehab(rewrite test case according to programming standards).
+
+Detailed achievements:
+\begin{itemize}
+\item Developed tools to reduce triage times
+\begin{itemize}
+\item Tool to link a list of issues to a specific bug ID
+\item Tool to get information of the issues from CIT(bug tracking interface) and generate list of IDs to link
+\end{itemize}
+\item Developed tools to reduce rehab process times
+\begin{itemize}
+\item Tool to parse the test case steps and update the list in the beginning of the test case 
+\end{itemize}
+\end{itemize}
+}
+
+
+%------------------------------------------------
+\entry
+{2010--2013}
+{Abax Asesores S.A.}
+{San José, Costa Rica}
+{\emph{Network and Systems administrator}\\
+Platforms integration and support for clients, mostly based on free software Internal infrastructure support.
+LAMP, LAPP, VPN, DNS and DHCP servers installation and configuration, Web stack optimization.
+
+Detailed achievements:
+\begin{itemize}
+\item Real time monitoring platform for in-house and clients servers, using Nagios and Icinga
+\begin{itemize}
+\item Platform integration
+\item Nagios Plug-in development using python and shell scripting
+\end{itemize}
+\item High traffic optimization for several mayor communication clients using tools as Varnish reverse proxy and memcache
+\end{itemize}
+}
+\end{entrylist}
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2008-2011}
+{Universidad de Costa Rica}
+{San José, Costa Rica}
+{\emph{Networks and systems administrator}\\
+Network design and support, personal computers supporting GNU/Linux and Microsoft Windows, Gnu/Linux Servers support.
+
+Detailed achievements:
+\begin{itemize}
+\item Network redesign
+\begin{itemize}
+\item Network segmentation using VLANs to separate users and traffic
+\item Public network creation with private IP addresses for regular users and laboratories
+\end{itemize}
+\item Virtual server implementation
+\begin{itemize}
+\item Migrated all the physical servers to virtual servers first using Xen and then Kvm
+\item Improve servers uptime by migrating virtual servers from their physical hosts
+\item Created separated virtual machines for needed services as web cache, mail, proxy, file server, DHCP, DNS
+\item Installation of a debian distribution mirror with support for most of the architectures at http://debian.emate.ucr.ac.cr to use in laboratory with powerpc machines
+\end{itemize}
+\end{itemize}
+}
+%------------------------------------------------
+\end{entrylist}
+
+\begin{entrylist}
+\entry
+{2008}
+{Colegio de Biólogos de Costa Rica}
+{San José, Costa Rica}
+{\emph{Solutions integration}\\
+Virtual Servers implementation using Xen Virtualization software, various Services implementation such as DNS , DHCP, MySQL and WEB, using GNU/Linux systems.
+}
+
+\entry
+{2006-2008}
+{Electric engineering, Universidad de Costa Rica}
+{San José, Costa Rica}
+{\emph{Network assistant}\\
+Help to develop and manage network infrastructure.
+}
+%------------------------------------------------
+\end{entrylist}
+\pagebreak
+%----------------------------------------------------------------------------------------
+%	Freelance section
+%----------------------------------------------------------------------------------------
+\section{freelance experience}
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2005-2014}
+{}
+{Costa Rica}
+{
+Solutions in networking and servers for several clients as:
+\begin{itemize}
+\item Fundación Acceso
+\begin{itemize}
+\item Design and install the laboratories for the "Superadas" project that helps children in social risk
+\end{itemize}
+\item Fundación Demuca
+\item Colegio La Salle
+\item Colegio de Biólogos de Costa Rica
+\item Universidad de Costa Rica
+\end{itemize}
+}
+%------------------------------------------------
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{education}
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2005}
+{Cisco Certified Networking Associate (CCNA)}
+{Network academy, UCR}
+{Modules 1-4, in process of certification}
+%------------------------------------------------
+\entry
+{2004}
+{Electric Engineering}
+{Universidad De Costa Rica}
+{Senior student of the computers and networks study plan}
+%------------------------------------------------
+\entry
+{2001}
+{Electronic Technician}
+{Instituto Tecnológico de Costa Rica}
+{}
+%------------------------------------------------
+\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{communication skills}
+%
+%\begin{entrylist}
+%%------------------------------------------------
+%\entry
+%{2011}
+%{Oral Presentation}
+%{California Business Conference}
+%{Presented the research I conducted for my Masters of Commerce degree.}
+%%------------------------------------------------
+%\entry
+%{2010}
+%{Poster}
+%{Annual Business Conference, Oregon}
+%{As part of the course work for BUS320, I created a poster analyzing several local businesses and presented this at a conference.}
+%%------------------------------------------------
+%\end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{interests}
+
+\textbf{professional:} open hardware, electronics, free software, networks, cloud computing, virtulization, programming, \textbf{personal:} basketball, snorkeling , cooking, running, jaquerespeis.org.
+
+%%----------------------------------------------------------------------------------------
+%%	PUBLICATIONS SECTION
+%%----------------------------------------------------------------------------------------
+%
+%\section{publications}
+%
+%\printbibsection{article}{article in peer-reviewed journal} % Print all articles from the bibliography
+%
+%\printbibsection{book}{books} % Print all books from the bibliography
+%
+%\begin{refsection} % This is a custom heading for those references marked as "inproceedings" but not containing "keyword=france"
+%\nocite{*}
+%\printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
+%\end{refsection}
+%
+%\begin{refsection} % This is a custom heading for those references marked as "inproceedings" and containing "keyword=france"
+%\nocite{*}
+%\printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
+%\end{refsection}
+%
+%\printbibsection{misc}{other publications} % Print all miscellaneous entries from the bibliography
+%
+%\printbibsection{report}{research reports} % Print all research reports from the bibliography
+%
+%%----------------------------------------------------------------------------------------
+
+\end{document}

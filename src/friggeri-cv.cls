@@ -1,4 +1,4 @@
-\ProvidesClass{friggeri-cv}[2018/04/30 CV class]
+\ProvidesClass{friggeri-cv}[2012/04/30 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
 \DeclareOption{print}{\def\@cv@print{}}
@@ -31,7 +31,6 @@
   \colorlet{green}{gray}
   \colorlet{orange}{gray}
   \colorlet{purple}{gray}
-  \colorlet{brown}{gray}
   \colorlet{red}{gray}
   \colorlet{blue}{gray}
   \colorlet{fillheader}{white}
@@ -47,21 +46,41 @@
 % Fonts %
 %%%%%%%%%
 
+% \RequirePackage[quiet]{fontspec}
+% \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+% 
+% \newfontfamily\bodyfont[]{Helvetica Neue}
+% \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
+% \newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
+% 
+% \defaultfontfeatures{Mapping=tex-text}
+% \setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
+% 
+% \setmathfont{XITS Math}
+
+%%% modified by Karol Kozioł for ShareLaTex use
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX]{unicode-math}
 
-%\newfontfamily\bodyfont[]{Helvetica Neue}
-%\newfontfamily\thinfont[]{Helvetica Neue UltraLight}
-%\newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
-
-\newfontfamily\bodyfont[]{DejaVu Sans}
-\newfontfamily\thinfont[]{DejaVu Sans ExtraLight}
-\newfontfamily\headingfont[]{DejaVu Sans Condensed Bold}
+\newfontfamily\bodyfont
+[BoldFont=texgyreheros-bold.otf,
+ItalicFont=texgyreheros-italic.otf,
+BoldItalicFont=texgyreheros-bolditalic.otf]
+{texgyreheros-regular.otf}
+\newfontfamily\thinfont[]{Lato-Light.ttf}
+\newfontfamily\headingfont[]{texgyreheros-bold.otf}
 
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Mapping=tex-text, Color=textcolor]{DejaVu Sans Condensed}
+\setmainfont
+[Mapping=tex-text, Color=textcolor,
+BoldFont=texgyreheros-bold.otf,
+ItalicFont=texgyreheros-italic.otf,
+BoldItalicFont=texgyreheros-bolditalic.otf
+]
+{texgyreheros-regular.otf}
 
-%\setmathfont{XITS Math}
+\setmathfont{texgyreheros-regular.otf}
+%%%
 
 %%%%%%%%%%
 % Header %
@@ -106,8 +125,7 @@
         red\or%
         orange\or%
         green\or%
-        purple\or%
-        brown\else%
+        purple\else%
         headercolor\fi%
     } #1#2#3%
   }%
@@ -123,9 +141,11 @@
   \par\vspace{\parskip}
 }
 
-\renewcommand{\subsection}[2]{
+\renewcommand{\subsection}[1]{
   \par\vspace{.5\parskip}%
-  \Large\headingfont\color{headercolor} #2%
+  {%
+  \large\headingfont\color{headercolor} #1%
+  }
   \par\vspace{.25\parskip}%
 }
 
@@ -181,7 +201,6 @@
 \RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
 
 \DeclareFieldFormat[article]{title}{#1\par}
-\DeclareFieldFormat[book]{title}{#1\par}
 \DeclareFieldFormat[inproceedings]{title}{#1\par}
 \DeclareFieldFormat[misc]{title}{#1\par}
 \DeclareFieldFormat[report]{title}{#1\par}
@@ -205,27 +224,6 @@
   }
   \par\vspace{0.3\baselineskip}
 }
-
-\DeclareBibliographyDriver{book}{%
-  \printfield{title}%
-  \newblock%
-  \printnames{author}%
-  \par%
-  \newblock%
-  {%
-    \footnotesize\addfontfeature{Color=lightgray}\itshape%
-    \printlist{publisher}%
-    \setunit*{\addcomma\space}%
-    \printfield{note}%
-    \setunit*{\addcomma\space}%
-    \printfield{year}%
-    \setunit{\addcomma\space}%
-    \printlist{location}%
-    \newunit%
-  }
-  \par\vspace{0.3\baselineskip}
-}
-
 
 \DeclareBibliographyDriver{inproceedings}{%
   \printfield{title}%
@@ -285,7 +283,7 @@
 
 \DeclareNameFormat{author}{%
   \small\addfontfeature{Color=lightgray}%
-  \ifblank{##3}{}{##3\space}##1%
+  \ifblank{##3}{}{##3\space}#1%
   \ifthenelse{\value{listcount}<\value{liststop}}
     {\addcomma\space}
     {}%

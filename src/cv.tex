@@ -1,27 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Friggeri Resume/CV
-% XeLaTeX Template
-% Version 1.0 (5/5/13)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Adrien Friggeri (adrien@friggeri.net)
-% https://github.com/afriggeri/CV
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-% Important notes:
-% This template needs to be compiled with XeLaTeX and the bibliography, if used,
-% needs to be compiled with biber rather than bibtex.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
-
-\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+%!TEX TS-program = xelatex
+\documentclass[]{friggeri-cv}
+\addbibresource{bibliography.bib}
 
 \begin{document}
 
@@ -31,8 +10,9 @@
 %	SIDEBAR SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{aside} % In the aside, each new line forces a line break
-\section{contact}
+% In the aside, each new line forces a line break
+\begin{aside}
+  \section{about}
 San José
 Costa Rica
 ~
@@ -50,10 +30,8 @@ english fluency
 Python,
 Shell scripting, C,
 C++, Tcl, \LaTeX, html,
-Verilog, java
+Verilog, java, Golang
 \end{aside}
-
-
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE SECTION
@@ -64,11 +42,29 @@ Verilog, java
 \begin{entrylist}
 
 \entry
-{2015--2018}
+{2015--2019}
+{Akamai technologies}
+{Escazu, Costa Rica}
+{\emph{Solutions architect, Carrier products} \\
+Carrier product integration architect, working with Licensed CDN and DNS systems.\\
+Manage the innovation laboratory in Costa Rica, represent Akamai in the "Espacios de innovación y tecnología aplicada" \href{https://www.cinde.org/}{CINDE} (Costa Rican investment promotion agency) program.
+
+Detailed achievements:
+\begin{itemize}
+\item SA assigned to the AURA project, Licensed CDN Akamai product.
+\item Part of the starting group of the X-Akamai-Project initiative.
+\item Akamai EDGE 2017 speaker and expert bar consultant.
+\item Akamai AIRs 2018 presenter.
+\item Successfully integrated multiple LCDN and AnswerX with the carriers team.
+\end{itemize}
+}
+
+\entry
+{2015--2017}
 {Akamai technologies}
 {Escazu, Costa Rica}
 {\emph{Solutions architect} \\
-Create, modify and consult different customers, first in the media industry the as a Carrier product integration specialist, working with Licensed CDN and DNS systems.\\
+Create, modify and consult different customers, designing, reviewing and implementing for some of the big names in the media industry.\\
 Manage the innovation laboratory in Costa Rica, represent Akamai in the "Espacios de innovación y tecnología aplicada" \href{https://www.cinde.org/}{CINDE} (Costa Rican investment promotion agency) program.
 
 Detailed achievements:
@@ -120,6 +116,8 @@ Detailed achievements:
 \end{itemize}
 \end{itemize}
 }
+\end{entrylist}
+\begin{entrylist}
 
 
 %------------------------------------------------
@@ -141,8 +139,6 @@ Detailed achievements:
 \item High traffic optimization for several mayor communication clients using tools as Varnish reverse proxy and memcache
 \end{itemize}
 }
-\end{entrylist}
-\begin{entrylist}
 %------------------------------------------------
 \entry
 {2008-2011}
@@ -168,9 +164,6 @@ Detailed achievements:
 \end{itemize}
 }
 %------------------------------------------------
-\end{entrylist}
-
-\begin{entrylist}
 \entry
 {2008}
 {Colegio de Biólogos de Costa Rica}
@@ -188,7 +181,6 @@ Help to develop and manage network infrastructure.
 }
 %------------------------------------------------
 \end{entrylist}
-\pagebreak
 %----------------------------------------------------------------------------------------
 %	Freelance section
 %----------------------------------------------------------------------------------------
@@ -214,6 +206,7 @@ Solutions in networking and servers for several clients as:
 }
 %------------------------------------------------
 \end{entrylist}
+%----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
@@ -221,81 +214,92 @@ Solutions in networking and servers for several clients as:
 
 \section{education}
 \begin{entrylist}
-%------------------------------------------------
-\entry
-{2005}
-{Cisco Certified Networking Associate (CCNA)}
-{Network academy, UCR}
-{Modules 1-4, in process of certification}
-%------------------------------------------------
-\entry
-{2004}
-{Electric Engineering}
-{Universidad De Costa Rica}
-{Senior student of the computers and networks study plan}
-%------------------------------------------------
-\entry
-{2001}
-{Electronic Technician}
-{Instituto Tecnológico de Costa Rica}
-{}
-%------------------------------------------------
+	\entry
+	{2013}
+	{Electronic and telecomunication engineering}
+	{Universidad latina de Costa Rica}
+	{Bachelo}
+	\entry
+	{2005}
+	{Cisco Certified Networking Associate (CCNA)}
+	{Network academy, UCR}
+	{Modules 1-4, in process of certification}
+	\entry
+	{2004}
+	{Electric Engineering}
+	{Universidad De Costa Rica}
+	{Senior student of the computers and networks study plan}
+	\entry
+	{2001}
+	{Electronic Technician}
+	{Instituto Tecnológico de Costa Rica}
+	{}
 \end{entrylist}
 
 %----------------------------------------------------------------------------------------
 %	COMMUNICATION SKILLS SECTION
 %----------------------------------------------------------------------------------------
 
-%\section{communication skills}
-%
-%\begin{entrylist}
-%%------------------------------------------------
-%\entry
-%{2011}
-%{Oral Presentation}
-%{California Business Conference}
-%{Presented the research I conducted for my Masters of Commerce degree.}
-%%------------------------------------------------
-%\entry
-%{2010}
-%{Poster}
-%{Annual Business Conference, Oregon}
-%{As part of the course work for BUS320, I created a poster analyzing several local businesses and presented this at a conference.}
-%%------------------------------------------------
-%\end{entrylist}
+\section{communication skills}
 
-%----------------------------------------------------------------------------------------
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2017}
+{Oral Presentation}
+{Akamai EDGE Conference}
+{Taking self-serviceability to the moon using PM variables.}
+%------------------------------------------------
+\entry
+{2018}
+{Proposal defense}
+{Akamai inside research symposium}
+{As part of the AIRS 2018, A colege and I, proposed to leverage IPFS for CDN caching.}
+%------------------------------------------------
+\end{entrylist}
+
+% \section{applications}
+% 
+% \begin{entrylist}
+%   \entry
+%     {2012}
+%     {Who did I forget ?}
+%     {\href{http://whodidiforget.com}{whodidiforget.com}}
+%     {Guest list recommendation for Facebook events based on friends already attending the event.}
+%   \entry
+%     {2011}
+%     {Fellows}
+%     {\href{http://fellows-exp.com}{fellows-exp.com}}
+%     {Automatic community detection among Facebook Friends in order to validate the \emph{cohesion} measure, creation of friend lists.}
+%   \entry
+%     {2008}
+%     {Happy Flu}
+%     {\href{http://happyflu.com}{happyflu.com}}
+%     {Experiment aimed to measure viral spreading of content across the blogosphere.}
+% \end{entrylist}
+
 %	INTERESTS SECTION
 %----------------------------------------------------------------------------------------
-
 \section{interests}
 
 \textbf{professional:} open hardware, electronics, free software, networks, cloud computing, virtulization, programming, \textbf{personal:} basketball, snorkeling , cooking, running, jaquerespeis.org.
 
-%%----------------------------------------------------------------------------------------
-%%	PUBLICATIONS SECTION
-%%----------------------------------------------------------------------------------------
+% \section{publications}
 %
-%\section{publications}
-%
-%\printbibsection{article}{article in peer-reviewed journal} % Print all articles from the bibliography
-%
-%\printbibsection{book}{books} % Print all books from the bibliography
-%
-%\begin{refsection} % This is a custom heading for those references marked as "inproceedings" but not containing "keyword=france"
-%\nocite{*}
-%\printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
+% Put your publications here!
+
+%%% This piece of code has been commented by Karol Kozioł due to biblatex errors. 
+% 
+%\printbibsection{article}{article in peer-reviewed journal}
+%\begin{refsection}
+%  \nocite{*}
+%  \printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
 %\end{refsection}
-%
-%\begin{refsection} % This is a custom heading for those references marked as "inproceedings" and containing "keyword=france"
-%\nocite{*}
-%\printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
+%\begin{refsection}
+%  \nocite{*}
+%  \printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
 %\end{refsection}
-%
-%\printbibsection{misc}{other publications} % Print all miscellaneous entries from the bibliography
-%
-%\printbibsection{report}{research reports} % Print all research reports from the bibliography
-%
-%%----------------------------------------------------------------------------------------
+%\printbibsection{misc}{other publications}
+%\printbibsection{report}{research reports}
 
 \end{document}

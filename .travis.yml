@@ -1,19 +1,15 @@
 sudo: required
-
-dist: xenial
-
-before_install:
-        - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends \
-        texlive-full
+language: generic
+services: docker
 script:
-        - mkdir _build
-        - xelatex -interaction=nonstopmode -halt-on-error -output-directory _build cv_10.tex
-#deploy:
-#        provider: releases
-#        api_key:
-#                secure: [YOUR KEY]
-#                file:
-#                        - _build/cv_10.pdf
-#                skip_cleanup: true
-#                on:
-#                        tags: true
+- docker pull dxjoke/tectonic-docker
+- docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
+  /bin/sh -c "tectonic cv.tex"
+deploy:
+  provider: releases
+  api_key:
+    secure: JAXIGrVeXf+Yz6tXtjLR99Q5ztsGzK8t8TGAm8n+xRja6rq0b56bG736DVjJneF5pzxhm/1kOPN/BCuXYISUiNOrynoUYxc0hCdVsmS0MhxBks1PLYW1r4CT+qASS4yKNOCM0hs5ZGkRfr1hN9kIHdgDnxvQ6I+hzJ0y9Ca5RouBjMC4KdrhztAMIpXPVtqAzc6IhoJpjcVoo1uCyRcuNWdq6D1YHpW9p4nlOGGr/Z/QPY9ZpExjhczZyPDI/0JeF6VHCSpwA3XBZs0Wzxp+VcUMpw6UnL1zeZXEhX4aoMftBDPkj6Xyr3J2YX5ABV8hryROf5Ed4PBQAbUxheFNmUA8e5ZJOt5A6l+SR0SOxMgPOBdXAGVayzL4x5a0GgkH/AIr5tilS5P42Y5wdfLob0Pw9/F+I2uTthGB4MDix/CT2Xvi0Ztfekl9AJMiYbkafpLO8TF03QUpkYW6BlchjYsuoo8rVe9IKk0STMqzhzcrXGGtxiFLd895623d46If2UBsd9PR0FOJmOpYTNlzwDp5IqosXutFfZuRxwNS+gHpAYZX8Lk7EY38r+aptb7H9kbHzuEtfKeQn4EcqulbYyZceYEiMCdLCywktU3mibTWvKsP6VPMZ0U4VdlTHj6aPodZ9Hcco6Aw1afZhPjRGM1EHY9BGU5j/fME3WV3YgY=
+  file: src/cv.pdf
+  skip_cleanup: true
+  on:
+    tags: true

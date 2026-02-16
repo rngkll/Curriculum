@@ -1,37 +1,98 @@
-%!TEX TS-program = xelatex
-\documentclass[]{friggeri-cv}
-\addbibresource{bibliography.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cv-friggeri-x 1.0 (01/01/2016)
+% XeLaTeX Template
+%
+% Based on:
+% Friggeri Resume/CV
+% Version 1.2 (3/5/15)
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+% 
+% Modified by:
+% Nadorrano
+% https://github.com/Nadorrano/cv-friggeri-x
+%
+% License:
+% MIT (https://opensource.org/licenses/MIT)
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography,
+% if used, needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper]{cv-friggeri-x}
+% Add `a4paper` to set a4 paper size
+% Add `nocolors` to remove colors from the document
+% Add `lightheader` to change the dark background of the header to white
+
+\usepackage{marvosym} % needed to print glyphs for email, cell phone etc.
+
+\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
 
 \begin{document}
 
-\header{Alvaro }{Segura Del Barco}{Networks \& systems administrator} % Your name and current job title/field
+\header{john}{smith}{junior business analyst} % Your name and current job title/field
 
 %----------------------------------------------------------------------------------------
 %	SIDEBAR SECTION
 %----------------------------------------------------------------------------------------
 
-% In the aside, each new line forces a line break
-\begin{aside}
-  \section{about}
-San José
-Costa Rica
+\begin{aside} % In the aside, each new line forces a line break
+\section{contact}
+\pin \hfill 123 Broadway
+City, State 12345
+Country
 ~
-+506 83185468
+{\Large\textcolor{gray}{\Telefon}} \hfill +0 (000) 111 1111
+{\Large\textcolor{gray}{\Mobilefone}} \hfill +0 (000) 111 1112
+{\Large\textcolor{gray}{\Letter}} \hfill \href{mailto:john@smith.com}{john@smith.com}
 ~
-\href{mailto:alvarosb@gmail.com}{alvarosb@gmail.com}
-\href{http://wp.me/4uJoK}{http://wp.me/4uJoK}
-\href{http://git.io/DM8URA}{http://git.io/DM8URA}
-\href{http://rngkll.github.io}{http://rngkll.github.io}
+\flogo \hfill \href{http://facebook.com/johnsmith}{fb://jsmith}
+\tlogo \hfill \href{http://twitter.com/johnsmith}{@jsmith}
+\llogo \hfill \href{http://linkedin.com/johnsmith}{in://johnsmith}
+\vklogo \hfill \href{http://vk.com/johnsmith}{vk://johnsmith}
+~
+\href{http://www.smith.com}{http://www.smith.com}
 \section{languages}
-Spanish mother tongue
-English fluency
+english mother tongue
+spanish \& italian fluency
 \section{programming}
-%{\color{red} $\varheartsuit$} 
-Python,
-Shell scripting, C,
-C++, Tcl, \LaTeX, html,
-Verilog, java, Golang
+{\color{red} $\varheartsuit$} \LaTeX, JavaScript
+Python, C++, PHP
+CSS3 \& HTML5
 \end{aside}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{education}
+
+\begin{entrylist}
+
+%------------------------------------------------
+
+\entry
+{2011--2012}
+{Masters {\normalfont of Commerce}}
+{The University of California, Berkeley}
+{\emph{Money Is The Root Of All Evil -- Or Is It?} \\ This thesis explored the idea that money has been the cause of untold anguish and suffering in the world. I found that it has, in fact, not.}
+
+%------------------------------------------------
+
+\entry
+{2007--2008}
+{Bachelor {\normalfont of Business Studies}}
+{The University of California, Berkeley}
+{Specialization in Commerce}
+
+%------------------------------------------------
+
+\end{entrylist}
 
 %----------------------------------------------------------------------------------------
 %	WORK EXPERIENCE SECTION
@@ -39,239 +100,81 @@ Verilog, java, Golang
 
 \section{experience}
 
+\subsection{Full Time}
+
 \begin{entrylist}
 
-\entry
-{2019--Now}
-{Akamai technologies}
-{Escazu, Costa Rica}
-{\emph{Software Engineer, IT} \\
-Software engineer, focused in DevOps and security.\\
-
-Being part of the data services hub, the main task is to maintain, extend, and improve the company's internal high-availability middleware system.
-
-Detailed achievements:
-\begin{itemize}
-		\item Automation of the installation process reducing human effort and errors.
-		\item Fostering transformation to configuration-as-code and IaC culture.
-		\item Establishing best practices for deployment processes.
-		\item Akamai 2021 Tech Summit speaker on stable,  highly available systems
-\end{itemize}
-}
+%------------------------------------------------
 
 \entry
-{2017--2019}
-{Akamai technologies}
-{Escazu, Costa Rica}
-{\emph{Solutions architect, Carrier products} \\
-Carriers product integration architect, AnswerX main solutions architect.\\
-The main role as an AnswerX Solutions architect is to serve as a consultant for the different customers(mainly ISPs) on DNS, deployment good practices, how to improve performance and stability.
-
+{2012--Now}
+{LEHMAN BROTHERS}
+{Los Angeles, California}
+{\emph{1\textsuperscript{st} Year Analyst} \\
+Developed spreadsheets for risk analysis on exotic derivatives on a wide array of commodities (ags, oils, precious and base metals), managed blotter and secondary trades on structured notes, liaised with Middle Office, Sales and Structuring for bookkeeping. \\
 Detailed achievements:
 \begin{itemize}
-        \item Successfully deployed DNS infrastructure for multiple countries in Latin America and the world.
-        \item SA assigned to the AURA project, Licensed CDN Akamai product.
-        \item Part of the starting group of the X-Akamai-Project initiative.
-        \item Akamai EDGE 2017 speaker and expert bar consultant.
-        \item Akamai AIRs 2018 presenter.
-        \item Successfully integrated multiple LCDN and AnswerX with the carriers team.
+\item Learned how to make amazing coffee
+\item Finally determined the reason for \textsc{PC LOAD LETTER}:
+\begin{itemize}
+\item Paper jam
+\item Software issues:
+\begin{itemize}
+\item Word not sending the correct data to printer
+\item Windows trying to print in letter format
 \end{itemize}
-}
+\item Coffee spilled inside printer
+\end{itemize}
+\item Broke the office record for number of kitten pictures in cubicle
+\item Learned how to make more amazing coffee on a new machine
+\end{itemize}}
+
+%------------------------------------------------
 
 \end{entrylist}
-\begin{entrylist}
-%------------------------------------------------
-\entry
-{2015--2017}
-{Akamai technologies}
-{Escazu, Costa Rica}
-{\emph{Solutions architect} \\
-Create, modify and consult different customers, designing, reviewing and implementing for some of the big names in the media industry.\\
-Manage the innovation laboratory in Costa Rica, represent Akamai in the "Espacios de innovación y tecnología aplicada" \href{https://www.cinde.org/}{CINDE} (Costa Rican investment promotion agency) program.
 
-Detailed achievements:
-\begin{itemize}
-	\item Developed tools to push media traffic to the platform to test customer configurations.
-	\item SA assigned to the AURA project, Licensed CDN Akamai product.
-	\item X-Akamai-Project initiative founder member.
-	\item Successfully integrated multiple LCDN and AnswerX with the carrier's team.
-	\item Developed a testing framework as an initiative to improve customer experience and efficiency for company employees.
-\end{itemize}
-}
+\subsection{Part Time}
 
-\entry
-{2014--2015}
-{Softtek}
-{Heredia, Costa Rica}
-{\emph{Embedded developer} \\
-C developer for the HP wired networking devices
-
-Detailed achievements:
-\begin{itemize}
-\item Developed debugging commands for HP networking devices.
-\item Migrated Uboot for the CPU architecture in the network devices.
-\end{itemize}
-}
-
-%------------------------------------------------
-\entry
-{2013--2014}
-{Softtek}
-{Heredia, Costa Rica}
-{\emph{Senior QA Engineer} \\
-Triage and Test-case programming for the upcoming software for HP wired networking devices.\\
-Rehab(rewrite test case according to programming standards).
-
-Detailed achievements:
-\begin{itemize}
-\item Developed tools to reduce triage times
-\begin{itemize}
-\item Tool to link a list of issues to a specific bug ID
-\item Tool to get information of the issues from CIT(bug tracking interface) and generate list of IDs to link
-\end{itemize}
-\item Developed tools to reduce rehab process times
-\begin{itemize}
-\item Tool to parse the test case steps and update the list in the beginning of the test case 
-\end{itemize}
-\end{itemize}
-}
-\end{entrylist}
 \begin{entrylist}
 
+\entry
+{2010--2011}
+{LEHMAN BROTHERS}
+{London, United Kingdom}
+{\emph{Summer Intern} \\
+Received pre-placed offer from the Exotics Trading Desk as a result of very positive reviews. Rated "truly distinctive" for Analytical Skills and Teamwork.}
 
 %------------------------------------------------
-\entry
-{2010--2013}
-{Abax Asesores S.A.}
-{San José, Costa Rica}
-{\emph{Network and Systems administrator}\\
-Platforms integration and support for clients, mostly based on free software Internal infrastructure support.
-LAMP, LAPP, VPN, DNS and DHCP servers installation and configuration, Web stack optimization.
-
-Detailed achievements:
-\begin{itemize}
-\item Real time monitoring platform for in-house and clients servers, using Nagios and Icinga
-\begin{itemize}
-\item Platform integration
-\item Nagios Plug-in development using python and shell scripting
-\end{itemize}
-\item High traffic optimization for several mayor communication clients using tools as Varnish reverse proxy and memcache
-\end{itemize}
-}
-%------------------------------------------------
-\entry
-{2008-2011}
-{Universidad de Costa Rica}
-{San José, Costa Rica}
-{\emph{Networks and systems administrator}\\
-Network design and support, personal computers supporting GNU/Linux and Microsoft Windows, Gnu/Linux Servers support.
-
-Detailed achievements:
-\begin{itemize}
-\item Network redesign
-\begin{itemize}
-\item Network segmentation using VLANs to separate users and traffic
-\item Public network creation with private IP addresses for regular users and laboratories
-\end{itemize}
-\item Virtual server implementation
-\begin{itemize}
-\item Migrated all the physical servers to virtual servers first using Xen and then Kvm
-\item Improve servers uptime by migrating virtual servers from their physical hosts
-\item Created separated virtual machines for needed services as web cache, mail, proxy, file server, DHCP, DNS
-\item Installation of a debian distribution mirror with support for most of the architectures at http://debian.emate.ucr.ac.cr to use in laboratory with powerpc machines
-\end{itemize}
-\end{itemize}
-}
-%------------------------------------------------
-\entry
-{2008}
-{Colegio de Biólogos de Costa Rica}
-{San José, Costa Rica}
-{\emph{Solutions integration}\\
-Virtual Servers implementation using Xen Virtualization software, various Services implementation such as DNS , DHCP, MySQL and WEB, using GNU/Linux systems.
-}
 
 \entry
-{2006-2008}
-{Electric engineering, Universidad de Costa Rica}
-{San José, Costa Rica}
-{\emph{Network assistant}\\
-Help to develop and manage network infrastructure.
-}
-%------------------------------------------------
-\end{entrylist}
-%----------------------------------------------------------------------------------------
-%	Freelance section
-%----------------------------------------------------------------------------------------
-\section{freelance experience}
-\begin{entrylist}
-%------------------------------------------------
-\entry
-{2005-2014}
-{}
-{Costa Rica}
-{
-Solutions in networking and servers for several clients as:
-\begin{itemize}
-\item Fundación Acceso
-\begin{itemize}
-\item Design and install the laboratories for the "Superadas" project that helps children in social risk
-\end{itemize}
-\item Fundación Demuca
-\item Colegio La Salle
-\item Colegio de Biólogos de Costa Rica
-\item Universidad de Costa Rica
-\end{itemize}
-}
-%------------------------------------------------
-\end{entrylist}
-%----------------------------------------------------------------------------------------
+{2008-2009}
+{Buy More}
+{Burbank, California}
+{\emph{Computer Repair Specialist} \\
+Worked in the Nerd Herd and helped to solve computer problems by asking customers to turn their computers off and on again.}
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%----------------------------------------------------------------------------------------
+%------------------------------------------------
 
-\section{education}
-\begin{entrylist}
-	\entry
-	{2013}
-	{Electronic and telecomunication engineering}
-	{Universidad latina de Costa Rica}
-	{Bachelor}
-	\entry
-	{2005}
-	{Cisco Certified Networking Associate (CCNA)}
-	{Network academy, UCR}
-	{Modules 1-4, in process of certification}
-	\entry
-	{2004}
-	{Electric Engineering}
-	{Universidad De Costa Rica}
-	{Senior student of the computers and networks study plan}
-	\entry
-	{2001}
-	{Electronic Technician}
-	{Instituto Tecnológico de Costa Rica}
-	{}
 \end{entrylist}
 
 %----------------------------------------------------------------------------------------
-%	Certifications section
+%	AWARDS SECTION
 %----------------------------------------------------------------------------------------
 
-\section{certifications}
+\section{awards}
 
 \begin{entrylist}
-	\entry
-	{2019}
-	{Compita Linux+}
-	{\href{https://www.youracclaim.com/badges/e0a369ba-bf60-4445-97be-49b9d14a61e2}{Badge Details}}
-	{}
-	\entry
-	{2019}
-	{AWS Certified Solutions Architect - Associate (English)}
-	{\href{https://www.certmetrics.com/amazon/public/badge.aspx?i=1&t=c&d=2019-03-14&ci=AWS00644145}{Badge Details}}
-	{}
+
+%------------------------------------------------
+
+\entry
+{2011}
+{Postgraduate Scholarship}
+{School of Business, The University of California}
+{Awarded to the top student in their final year of a Bachelors degree. Mastered the art of filing accurate TPS reports.}
+
+%------------------------------------------------
+
 \end{entrylist}
 
 %----------------------------------------------------------------------------------------
@@ -281,65 +184,59 @@ Solutions in networking and servers for several clients as:
 \section{communication skills}
 
 \begin{entrylist}
+
 %------------------------------------------------
+
 \entry
-{2017}
+{2011}
 {Oral Presentation}
-{Akamai EDGE Conference}
-{Taking self-serviceability to the moon using PM variables.}
+{California Business Conference}
+{Presented the research I conducted for my Masters of Commerce degree.}
+
 %------------------------------------------------
+
 \entry
-{2018}
-{Proposal defense}
-{Akamai inside research symposium}
-{As part of the AIRS 2018, A colege and I, proposed to leverage IPFS for CDN caching.}
+{2010}
+{Poster}
+{Annual Business Conference, Oregon}
+{As part of the course work for BUS320, I created a poster analyzing several local businesses and presented this at a conference.}
+
 %------------------------------------------------
+
 \end{entrylist}
 
-% \section{applications}
-% 
-% \begin{entrylist}
-%   \entry
-%     {2012}
-%     {Who did I forget ?}
-%     {\href{http://whodidiforget.com}{whodidiforget.com}}
-%     {Guest list recommendation for Facebook events based on friends already attending the event.}
-%   \entry
-%     {2011}
-%     {Fellows}
-%     {\href{http://fellows-exp.com}{fellows-exp.com}}
-%     {Automatic community detection among Facebook Friends in order to validate the \emph{cohesion} measure, creation of friend lists.}
-%   \entry
-%     {2008}
-%     {Happy Flu}
-%     {\href{http://happyflu.com}{happyflu.com}}
-%     {Experiment aimed to measure viral spreading of content across the blogosphere.}
-% \end{entrylist}
-
+%----------------------------------------------------------------------------------------
 %	INTERESTS SECTION
 %----------------------------------------------------------------------------------------
+
 \section{interests}
 
-\textbf{professional:} open hardware, electronics, free software, networks, cloud computing, virtulization, programming, \textbf{personal:} basketball, snorkeling , cooking, running, jaquerespeis.org.
+\textbf{professional:} data analysis, company profiling, risk analysis, economics, web design, web app creation, software design, marketing \textbf{personal:} piano, chess, cooking, dancing, running
 
-This file is build using \href{https://github.com}{Github} and \href{https://travis-ci.org/}{Travis}.
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
 
-% \section{publications}
-%
-% Put your publications here!
+\section{publications}
 
-%%% This piece of code has been commented by Karol Kozioł due to biblatex errors. 
-% 
-%\printbibsection{article}{article in peer-reviewed journal}
-%\begin{refsection}
-%  \nocite{*}
-%  \printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
-%\end{refsection}
-%\begin{refsection}
-%  \nocite{*}
-%  \printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
-%\end{refsection}
-%\printbibsection{misc}{other publications}
-%\printbibsection{report}{research reports}
+\printbibsection{article}{article in peer-reviewed journal} % Print all articles from the bibliography
+
+\printbibsection{book}{books} % Print all books from the bibliography
+
+\begin{refsection} % This is a custom heading for those references marked as "inproceedings" but not containing "keyword=france"
+\nocite{*}
+\printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=bibheading]
+\end{refsection}
+
+\begin{refsection} % This is a custom heading for those references marked as "inproceedings" and containing "keyword=france"
+\nocite{*}
+\printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=bibheading]
+\end{refsection}
+
+\printbibsection{misc}{other publications} % Print all miscellaneous entries from the bibliography
+
+\printbibsection{report}{research reports} % Print all research reports from the bibliography
+
+%----------------------------------------------------------------------------------------
 
 \end{document}

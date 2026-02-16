@@ -1,0 +1,11 @@
+*.swp
+*.swo
+
+# LaTex specific files
+*.aux
+*.bbl
+*.blg
+*.bcf
+*.log
+*.out
+*.xml

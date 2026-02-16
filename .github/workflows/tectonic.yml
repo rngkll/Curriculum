@@ -44,7 +44,6 @@ jobs:
       - uses: wtfjoke/setup-tectonic@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          biber-version: "latest"
           
       - name: Build CV with Tectonic
         working-directory: src/

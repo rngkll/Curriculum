@@ -25,6 +25,13 @@ jobs:
           fc-cache -fv
           echo "✅ Installed Roboto fonts:"
           fc-list | grep -i roboto | head -5
+
+      - name: Install biber
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y biber
+          fc-cache -fv
+          echo "✅ Installed biber"
         
       - name: Generate build metadata
         id: metadata

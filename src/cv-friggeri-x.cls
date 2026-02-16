@@ -1,10 +1,25 @@
-\ProvidesClass{friggeri-cv}[2012/04/30 CV class]
+\ProvidesClass{friggeri-cv}[2016/01/01 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
-\DeclareOption{print}{\def\@cv@print{}}
+\DeclareOption{lightheader}{\def\@cv@lightheader{}}
+
+\DeclareOption{nocolors}{\def\@cv@nocolors{}}
+
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}%
 }
+
+% Add support for A4 paper
+\newif\ifafourpaper
+
+\afourpaperfalse
+
+\DeclareOption{a4paper}
+   {\setlength\paperheight {297mm}%
+    \setlength\paperwidth  {210mm}%
+    \afourpapertrue%
+   }
+
 \ProcessOptions\relax
 \LoadClass{article}
 
@@ -26,19 +41,32 @@
 \definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
+\definecolor{fblue}{HTML}{3D539E}
+\definecolor{tblue}{HTML}{55ACEE}
+\definecolor{lblue}{HTML}{0077B5}
+\definecolor{vkblue}{HTML}{A6B8D4}
 
-\ifdefined\@cv@print
-  \colorlet{green}{gray}
-  \colorlet{orange}{gray}
-  \colorlet{purple}{gray}
-  \colorlet{red}{gray}
-  \colorlet{blue}{gray}
+\ifdefined\@cv@lightheader
   \colorlet{fillheader}{white}
   \colorlet{header}{gray}
-\else
+\else 
   \colorlet{fillheader}{gray}
   \colorlet{header}{white}
 \fi
+
+\ifdefined\@cv@nocolors
+  \colorlet{green}{gray}
+  \colorlet{orange}{gray}
+  \colorlet{purple}{gray}
+  \colorlet{brown}{gray}
+  \colorlet{red}{gray}
+  \colorlet{blue}{gray}
+  \colorlet{fblue}{gray}
+  \colorlet{tblue}{gray}
+  \colorlet{lblue}{gray}
+  \colorlet{vkblue}{gray}
+\fi
+
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{gray}
 
@@ -46,41 +74,17 @@
 % Fonts %
 %%%%%%%%%
 
-% \RequirePackage[quiet]{fontspec}
-% \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
-% 
-% \newfontfamily\bodyfont[]{Helvetica Neue}
-% \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
-% \newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
-% 
-% \defaultfontfeatures{Mapping=tex-text}
-% \setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
-% 
-% \setmathfont{XITS Math}
-
-%%% modified by Karol Kozioł for ShareLaTex use
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX]{unicode-math}
 
-\newfontfamily\bodyfont
-[BoldFont=texgyreheros-bold.otf,
-ItalicFont=texgyreheros-italic.otf,
-BoldItalicFont=texgyreheros-bolditalic.otf]
-{texgyreheros-regular.otf}
-\newfontfamily\thinfont[]{Lato-Light.ttf}
-\newfontfamily\headingfont[]{texgyreheros-bold.otf}
+\newfontfamily\bodyfont[]{Roboto}
+\newfontfamily\thinfont[]{Roboto Thin}
+\newfontfamily\headingfont[]{Roboto Condensed Bold}
 
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont
-[Mapping=tex-text, Color=textcolor,
-BoldFont=texgyreheros-bold.otf,
-ItalicFont=texgyreheros-italic.otf,
-BoldItalicFont=texgyreheros-bolditalic.otf
-]
-{texgyreheros-regular.otf}
+\setmainfont[Mapping=tex-text, Color=textcolor]{Roboto Light}
 
-\setmathfont{texgyreheros-regular.otf}
-%%%
+%\setmathfont{XITS Math}
 
 %%%%%%%%%%
 % Header %
@@ -125,7 +129,8 @@ BoldItalicFont=texgyreheros-bolditalic.otf
         red\or%
         orange\or%
         green\or%
-        purple\else%
+        purple\or%
+        brown\else%
         headercolor\fi%
     } #1#2#3%
   }%
@@ -143,9 +148,13 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 
 \renewcommand{\subsection}[1]{
   \par\vspace{.5\parskip}%
-  {%
-  \large\headingfont\color{headercolor} #1%
-  }
+  {\Large\headingfont\color{headercolor} #1}
+  \par\vspace{.25\parskip}%
+}
+
+\renewcommand{\subsubsection}[2]{
+  \par\vspace{.5\parskip}%
+  {\Large\headingfont\color{headercolor} #2}
   \par\vspace{.25\parskip}%
 }
 
@@ -162,15 +171,28 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 }{%
   \end{tabular*}
 }
+
+% Set a4paper and US letter size as explained here:
+% http://tex.stackexchange.com/questions/248399/trasform-friggeri-cv-to-a4
+
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
-\newcommand{\entry}[4]{%
-  #1&\parbox[t]{11.8cm}{%
+\ifafourpaper
+  \newcommand{\entry}[4]{%
+  \parbox[t]{2cm}{\hfill#1}&\parbox[t]{11.1cm}{%
+  \textbf{#2}%
+  \hfill%
+  {, \normalsize\addfontfeature{Color=lightgray} \textit{#3}}\\%
+  #4\vspace{\parsep}%
+  }\\}
+\else
+  \newcommand{\entry}[4]{%
+    \parbox[t]{2cm}{\hfill#1}&\parbox[t]{11.6cm}{%
     \textbf{#2}%
     \hfill%
-    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
+    {, \normalsize\addfontfeature{Color=lightgray} \textit{#3}}\\%
     #4\vspace{\parsep}%
-  }\\}
-
+    }\\}
+\fi
 
 %%%%%%%%%%%%%%
 % Side block %
@@ -198,12 +220,13 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 % Bibliography %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
+\RequirePackage[backend=biber, style=verbose, maxnames=99, sorting=ydnt]{biblatex}
 
-\DeclareFieldFormat[article]{title}{#1\par}
-\DeclareFieldFormat[inproceedings]{title}{#1\par}
-\DeclareFieldFormat[misc]{title}{#1\par}
-\DeclareFieldFormat[report]{title}{#1\par}
+\DeclareFieldFormat[article]{title}{\href{\thefield{url}}{#1}}
+\DeclareFieldFormat[inproceedings]{title}{\href{\thefield{url}}{#1}}
+\DeclareFieldFormat[book]{title}{\href{\thefield{url}}{#1}}
+\DeclareFieldFormat[misc]{title}{\href{\thefield{url}}{#1}}
+\DeclareFieldFormat[report]{title}{\href{\thefield{url}}{#1}}
 
 \DeclareBibliographyDriver{article}{%
   \printfield{title}%
@@ -224,6 +247,27 @@ BoldItalicFont=texgyreheros-bolditalic.otf
   }
   \par\vspace{0.3\baselineskip}
 }
+
+\DeclareBibliographyDriver{book}{%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \printlist{publisher}%
+    \setunit*{\addcomma\space}%
+    \printfield{note}%
+    \setunit*{\addcomma\space}%
+    \printfield{year}%
+    \setunit{\addcomma\space}%
+    \printlist{location}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
 
 \DeclareBibliographyDriver{inproceedings}{%
   \printfield{title}%
@@ -283,20 +327,25 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 
 \DeclareNameFormat{author}{%
   \small\addfontfeature{Color=lightgray}%
-  \ifblank{##3}{}{##3\space}#1%
+  \nameparts{#1}\ifblank{\namepartgiven}{}{\namepartgiven\space}\namepartfamily%
   \ifthenelse{\value{listcount}<\value{liststop}}
     {\addcomma\space}
     {}%
 }
 
+\defbibheading{bibheading}[\bibname]{%
+   \subsubsection*{#1}
+   \markboth{#1}{#1}
+}
+
 \newcommand{\printbibsection}[2]{
   \begin{refsection}
     \nocite{*}
-    \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=subbibliography]
+    \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=bibheading]
   \end{refsection}
 }
 
-\DeclareSortingTemplate{chronological}{
+\DeclareSortingScheme{chronological}{
   \sort[direction=descending]{\field{year}}
   \sort[direction=descending]{\field{month}}
 }
@@ -309,3 +358,45 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 
 \RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
 \RequirePackage{hyperref}
+\hypersetup{
+	hidelinks,
+	%colorlinks,
+	linkcolor=red,
+	citecolor=red,
+	filecolor=red,
+	urlcolor = blue
+}
+
+% Newcommands for glyph printing
+\RequirePackage{graphicx}
+
+% Add a Google-style pin
+\newcommand*{\pin}{%
+  \textcolor{gray}{\includegraphics[height=1em]{resources/pin}}%
+}
+
+% Add fb logo
+\newcommand*{\flogo}{%
+  \textcolor{fblue}{\includegraphics[height=1em]{resources/f_logo}}%
+}
+
+% Add twitter logo
+\newcommand*{\tlogo}{%
+  \textcolor{tblue}{\includegraphics[height=1em]{resources/twitter_logo}}%
+}
+
+% Add linkedin logo
+\newcommand*{\llogo}{%
+  \textcolor{lblue}{\includegraphics[height=1em]{resources/linkedin_logo}}%
+}
+
+% Add vk logo
+\newcommand*{\vklogo}{%
+  \textcolor{vkblue}{\includegraphics[height=1em]{resources/vk_logo}}%
+}
+
+% A fix for \href{}{} colors not working with fontspec
+\makeatletter
+\def\HyColor@@@@UseColor#1\@nil{\addfontfeatures{Color=#1}}
+\makeatother
+

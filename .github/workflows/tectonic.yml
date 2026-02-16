@@ -34,7 +34,9 @@ jobs:
            ${{ runner.os }}-tectonic-
            
       - uses: wtfjoke/setup-tectonic@v4
-      - name: Build CV with Tectonic
+        with:
+          biber-version: "latest"
+      - name: Build CV with Tectonic + Biber
         working-directory: src/
         run: |
           echo "Building CV..."

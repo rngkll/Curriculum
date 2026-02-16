@@ -1,8 +1,10 @@
 name: 'Build CV and Create Releases'
 on: 
   push:
-    branches: [main]
+    branches: ['**']     # Build all branches
     tags: ['v*']
+  pull_request:
+    branches: ['**']     # Build all pull requests
 
 jobs:
   build:
@@ -66,13 +68,15 @@ jobs:
           cp src/cv.pdf "artifacts/${{ steps.metadata.outputs.pdf-name }}"
           echo "Build completed: ${{ steps.metadata.outputs.build-date }}" > artifacts/build-info.txt
           echo "Commit: ${{ steps.metadata.outputs.commit-hash }}" >> artifacts/build-info.txt
+          echo "Branch: ${{ github.ref_name }}" >> artifacts/build-info.txt
+          echo "Event: ${{ github.event_name }}" >> artifacts/build-info.txt
           
       - name: Upload PDF artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: cv-pdf-${{ steps.metadata.outputs.commit-hash }}
+          name: cv-pdf-${{ github.ref_name }}-${{ steps.metadata.outputs.commit-hash }}
           path: artifacts/
-          retention-days: 30
+          retention-days: ${{ github.ref == 'refs/heads/main' && 30 || (github.event_name == 'pull_request' && 3 || 7) }}
 
   release:
     needs: build
@@ -86,7 +90,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          name: cv-pdf-${{ needs.build.outputs.commit-hash }}
+          name: cv-pdf-${{ github.ref_name }}-${{ needs.build.outputs.commit-hash }}
           path: artifacts/
           
       - name: Create pre-release (main branch)

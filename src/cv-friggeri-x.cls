@@ -74,15 +74,20 @@
 % Fonts %
 %%%%%%%%%
 
-\RequirePackage[quiet]{fontspec}
-\RequirePackage[math-style=TeX]{unicode-math}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{tgheros}  % TeX Gyre Heros package
 
-\newfontfamily\bodyfont[]{Roboto}
-\newfontfamily\thinfont[]{Roboto Thin}
-\newfontfamily\headingfont[]{Roboto Condensed Bold}
+% Configure TeX Gyre Heros as default sans serif
+\renewcommand{\sfdefault}{qhv}  % qhv = TeX Gyre Heros family code
+\renewcommand{\familydefault}{\sfdefault}
 
-\defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Mapping=tex-text, Color=textcolor]{Roboto Light}
+% Define font commands compatible with existing template usage
+\newcommand{\bodyfont}{\fontfamily{qhv}\selectfont}
+\newcommand{\thinfont}{\fontfamily{qhv}\fontseries{l}\selectfont}  % Light series
+\newcommand{\headingfont}{\fontfamily{qhv}\fontseries{b}\selectfont}  % Bold series
+
+% Handle text color (replaces the Color=textcolor functionality)
+\AtBeginDocument{\color{textcolor}}
 
 %\setmathfont{XITS Math}
 

@@ -18,21 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Install Roboto fonts
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y fonts-roboto
-          fc-cache -fv
-          echo "✅ Installed Roboto fonts:"
-          fc-list | grep -i roboto | head -5
-
-      - name: Install biber
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y biber
-          fc-cache -fv
-          echo "✅ Installed biber"
-        
       - name: Generate build metadata
         id: metadata
         run: |
@@ -48,10 +33,7 @@ jobs:
           restore-keys: |
            ${{ runner.os }}-tectonic-
            
-      - uses: wtfjoke/setup-tectonic@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          
+      - uses: wtfjoke/setup-tectonic@v4
       - name: Build CV with Tectonic
         working-directory: src/
         run: |

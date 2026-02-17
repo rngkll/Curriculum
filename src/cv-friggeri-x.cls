@@ -89,6 +89,9 @@
 % Handle text color (replaces the Color=textcolor functionality)
 \AtBeginDocument{\color{textcolor}}
 
+% Restore unicode-math for Unicode symbols like \varheartsuit
+\RequirePackage[math-style=TeX]{unicode-math}
+
 %\setmathfont{XITS Math}
 
 %%%%%%%%%%
